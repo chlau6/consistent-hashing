@@ -29,7 +29,7 @@ public class ConsistentHashingImpl<T> implements ConsistentHashing<T> {
 
     @Override
     public void remove(T node) {
-        // for loop is to add virtual node
+        // for loop is to remove virtual node
         for (int i = 0; i < replicas; i++) {
             circle.remove(hashFunction.hash(node.toString() + i));
         }
